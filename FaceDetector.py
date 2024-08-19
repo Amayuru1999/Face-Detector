@@ -8,7 +8,9 @@ grayscaled_img=cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 face_coordinates= trained_face_data.detectMultiScale(grayscaled_img)
 
-cv2.rectangle(img,(383,501),(383+116,501+116),(0,255,0),2)
+
+(x,y,w,h)=face_coordinates[0]
+cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
 
 print(face_coordinates)
 
