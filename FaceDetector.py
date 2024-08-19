@@ -7,7 +7,12 @@ img = cv2.imread('1.jpeg')
 grayscaled_img=cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 face_coordinates= trained_face_data.detectMultiScale(grayscaled_img)
-cv2.imshow('Face Detector', grayscaled_img)
+
+cv2.rectangle(img,(383,501),(383+116,501+116),(0,255,0),2)
+
+print(face_coordinates)
+
+cv2.imshow('Face Detector', img)
 cv2.waitKey()
 
 print("Code completed 🚀")
