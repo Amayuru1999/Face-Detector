@@ -8,4 +8,4 @@ while True:
         cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
     success, img = cap.read()
     cv2.imshow("Video", img)
-    cv2.waitKey(10)
+    cv2.waitKey(1)
