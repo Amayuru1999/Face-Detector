@@ -11,7 +11,11 @@ with open('CarParkPos', 'rb') as f:
 
 def checkParkingSpace():
     for pos in posList:
-        cv2.rectangle(img, pos, (pos[0] + width, pos[1] + height), (255, 0, 255), 2)
+        x,y = pos
+
+        imgCrop = img[y:y + height, x:x + width]
+        cv2.imshow(str(x*y), imgCrop)
+
 
 
 while True:
@@ -20,6 +24,8 @@ while True:
         cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
     success, img = cap.read()
     checkParkingSpace()
+    for pos in posList:
+        cv2.rectangle(img, pos, (pos[0] + width, pos[1] + height), (255, 0, 255), 2)
 
     cv2.imshow("Video", img)
     cv2.waitKey(10)
