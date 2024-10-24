@@ -1,3 +1,5 @@
+import pickle
+
 import cv2
 
 img = cv2.imread('carParkImg.png')
@@ -15,6 +17,8 @@ def mouseClick(events, x, y, flags, param):
             if pos[0] < x < pos[0] + width and pos[1] < y < pos[1] + height:
                 posList.pop(i)
 
+    with open('CarParkPos','wb') as f:
+        pickle.dump(posList, f)
 
 while True:
     img = cv2.imread('carParkImg.png')
