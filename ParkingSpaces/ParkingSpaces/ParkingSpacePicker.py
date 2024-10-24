@@ -4,10 +4,11 @@ import cv2
 
 width, height = 107, 48
 
-with open('CarParkPos', 'rb') as f:
-    posList = pickle.load(f)
-
-posList = []
+try:
+    with open('CarParkPos', 'rb') as f:
+        posList = pickle.load(f)
+except:
+    posList = []
 
 
 def mouseClick(events, x, y, flags, param):
